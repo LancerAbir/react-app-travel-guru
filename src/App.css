@@ -1,0 +1,373 @@
+/* Default CSS */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+.section-padding {
+    background-color: #ddd;
+    background:linear-gradient(0deg, rgba(38, 28, 34, 0.826), rgba(194, 32, 140, 0.846));
+    background-image: url('./images/Image/Rectangle\ 1.png');
+    width: 100%;
+    /* min-height: 100vh; */
+    height: 800px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.section-padding:before {
+  position: absolute;
+  width: 100%;
+  height: 800px;
+  content: "";
+  background-color: #000;
+  opacity: .8;
+}
+section.banner {
+  padding: 100px 0;
+}
+
+/* Header CSS */
+header.header {
+    padding-bottom: 32px;
+}
+.logo img {
+    width: 120px;
+    height: auto;
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+}
+.nav ul li h6 {
+    display: inline-block;
+}
+.nav ul li {
+    display: block;
+}
+.nav ul li a:hover {
+    text-decoration: none;
+    color: #999;
+}
+button.section-btn {
+    background-color: #F9A51A;
+    color: #000;
+    border: none;
+    padding: 12px 29px;
+    margin-left: 17px;
+    border-radius: 5px;
+    transition: .3s;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 0px;
+}
+button.section-btn:hover {
+    background-color: #92720F;
+    color: #fff;
+}
+
+
+
+/* Travel Slider */
+.wrapper {
+    width: 1187px;
+    margin: 0 auto;
+}
+.travel-header {
+    color: #fff;
+    line-height: 24px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 24px;
+}
+.travel-header p {
+    width: 435px;
+}
+.travel-header h1 {
+    font-size: 97px;
+    text-transform: uppercase;
+    font-family: Bebas Neue;
+}
+.place-box {
+    margin-right: 25px;
+    position: relative;
+    box-shadow: 10px 10px 10px #000;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    transition: .3s;
+    background: linear-gradient(0.12deg, #000000 0.1%, rgba(0, 0, 0, 0) 69.96%);
+}
+
+.place-box:hover {
+    border: 4px solid #FBBC04;
+    border-radius: 20px;
+    width: 270px;
+    height: 416px;
+}
+
+
+.place-box h5 {
+    position: absolute;
+    bottom: 13px;
+    text-transform: uppercase;
+    color: #fff;
+    left: 15px;
+    font-family: Bebas Neue;
+    font-size: 36px;
+}
+.place-box img {
+    height: 408px;
+    width: 262px;
+    box-sizing: border-box;
+    background: linear-gradient(0.12deg, #000000 0.1%, rgba(0, 0, 0, 0) 69.96%);
+    border-radius: 16px;
+    opacity: .5;
+}
+.travel-slider {
+    overflow: hidden;
+    width: 802px;
+}
+
+
+
+
+/* Travel Destination Form Box */
+.destination-box form {
+    padding: 27px 24px;
+    font-family: Montserrat;
+    color: #818181;
+}
+.destination-box form select.custom-select, .destination-box form input.form-control.date-input {
+    color: #000;
+    font-weight: 700;
+}
+.form-group.col-md-6.date-picker input.form-control.date-input {
+    position: relative;
+    width: 100%;
+}
+.form-group.col-md-6.date-picker img {
+    bottom: 12px;
+    position: absolute;
+    right: 30px;
+    width: 14px;
+    cursor: pointer;
+}
+.destination-box button {
+    background-color: #F9A51A;
+    padding: 20px;
+    margin-top: 15px;
+    font-weight: 500;
+    transition: .3s;
+}
+.destination-box button:hover {
+    background-color: #92720F;
+    color: #fff;
+}
+
+
+
+
+
+
+/* Hotel Rooms */
+.hotel-header {
+    border-top: 1px solid #D1D1D1;
+    margin-top: -38px;
+    font-family: Montserrat;
+    margin-bottom: 25px;
+    padding-top: 30px;
+}
+.hotel-header h6 {
+    color: #2B2B2B;
+    font-size: 16px;
+}
+.hotel-header h5 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+}
+.single-hotel img {
+    max-width: 240px;
+    max-height: 180px;
+    margin-right: 25px;
+}
+.single-hotel {
+    margin-bottom: 50px;
+    font-family: Montserrat;
+}
+.hotel-details h6 {
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+}
+.hotel-details {
+    color: #6A6A6A;
+    line-height: 22px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.review {
+    width: 283px;
+}
+.rating {
+    position: relative;
+    width: 30%;
+}
+.rating p {
+    position: absolute;
+    left: 27px;
+    top: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+}
+.rating img {
+    width: 20px;
+}
+.rate p {
+    font-weight: 200;
+    font-size: 18px;
+    color: #000;
+}
+.rate p span {
+    font-weight: 500;
+}
+.rate p small {
+    font-weight: 200;
+    font-size: 14px;
+}
+
+
+/* Google Map */
+.google-map {
+    background-color: #ddd;
+    width: 100%;
+    height: 670px;
+    border-radius: 13px;
+}
+
+
+
+
+
+
+/* Auth Form Login */
+.auth-box {
+    padding: 37px 54px;
+    border: 1px solid #ABABAB;
+    border-radius: 5px;
+    font-family: Montserrat;
+}
+
+.auth-box h4 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.auth-box form input.form-control {
+    color: #000;
+    font-weight: 500;
+    border: none;
+    border-bottom: 1px solid #C5C5C5;
+    margin-top: 40px;
+}
+
+.auth-box .remember-forget .form-group {
+    font-weight: 500;
+    font-family: Avenir;
+}
+
+.auth-box .remember-forget .form-group p {
+    color: #F9A51A;
+    cursor: pointer;
+}
+
+.auth-box input[type="submit"] {
+    background: #F9A51A;
+    padding: 14px;
+    transition: .3s;
+    font-weight: 500;
+}
+
+.auth-box input[type="submit"]:hover {
+    color: #fff;
+    background-color: #92720F;
+}
+
+.auth-box p.auth-bottom {
+    font-family: Avenir;
+    font-weight: 500;
+    line-height: 22px;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+.auth-box p.auth-bottom span {
+    color: #F9A51A;
+    cursor: pointer;
+}
+
+.or:before {
+    width: 195px;
+    height: 1px;
+    content: "";
+    background-color: #AAAAAA;
+    position: absolute;
+    top: 50%;
+    left: 58px;
+    margin-top: -1px;
+}
+
+.or {
+    padding: 15px;
+    font-family: Avenir;
+    font-weight: 500;
+    position: relative;
+    display: block;
+}
+
+.or:after {
+    width: 195px;
+    height: 1px;
+    content: "";
+    background-color: #AAAAAA;
+    position: absolute;
+    top: 50%;
+    right: 58px;
+    margin-top: -1px;
+}
+
+button.social-auth-btn img {
+    max-width: 37px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    max-height: 37px;
+    margin-top: -19px;
+}
+
+button.social-auth-btn:focus {
+    outline: none;
+}
+
+button.social-auth-btn {
+    font-family: Montserrat;
+    padding: 10px 97px;
+    position: relative;
+    margin-bottom: 13px;
+    border-radius: 57px;
+    background: transparent;
+    border: 1px solid #C7C7C7;
+    font-weight: 500;
+    transition: .3s;
+}
+
+button.social-auth-btn:hover {
+    background-color: #ddd;
+}
