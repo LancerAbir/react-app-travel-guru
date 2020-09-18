@@ -1,14 +1,21 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import DarkHeader from '../layout/Dark Header/DarkHeader';
 import ThemeDatePicker from '../layout/Date Picker/ThemeDatePicker';
+import Hotel from './Hotel';
+
 
 
 const Destination = () => {
+
     //** Data Come Form Context API */
     const [travels, setTravels, loggedInUser, setLoggedInUser] = useContext(UserContext)
-    console.log(loggedInUser);
+
+    //** Dynamic Key Single Place */
+    const { SingleDesKey } = useParams()
+    const place = loggedInUser.find(sc => sc.key === SingleDesKey)
+    const { name, descriptionDes, key } = place
 
     return (
         <div>
@@ -22,13 +29,8 @@ const Destination = () => {
                         <div className="row">
                             <div className="col-md-7">
                                 <div className="travel-header">
-                                    <h1>Cox's bazar</h1>
-                                    <p>Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its
-                                    very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli
-                                    Beach in the south. Aggameda Khyang monastery is home to bronze statues and
-                                    centuries-old Buddhist manuscripts. South of town, the tropical rainforest of
-                                    Himchari National Park has waterfalls and many birds. North, sea turtles breed
-                                    on nearby Sonadia Island.</p>
+                                    <h1>{name}</h1>
+                                    <p>{descriptionDes}</p>
                                 </div>
                             </div>
 
@@ -54,7 +56,7 @@ const Destination = () => {
                                         <div className="form-group">
                                             <label htmlFor="">Destination</label>
                                             <select className="custom-select" required>
-                                                <option value="">Cox’s Bazar</option>
+                                                <option value="">{name}</option>
                                             </select>
                                         </div>
                                         <div className="row">
@@ -67,7 +69,7 @@ const Destination = () => {
                                                 <ThemeDatePicker></ThemeDatePicker>
                                             </div>
                                         </div>
-                                        <Link to='/hotel'>
+                                        <Link to={"/hotel/" + key}>
                                             <button type="submit" className="btn col-md-12 section-btn">Start Booking</button>
                                         </Link>
                                     </form>

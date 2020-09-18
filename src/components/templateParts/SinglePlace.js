@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import CoxBazar from '../../images/Image/Rectangle 1.png'
-import Sundarban from '../../images/Image/sundorbon.png'
-import Sreemangal from '../../images/Image/Sreemongol.png'
-import Sajek from '../../images/Image/Sajek.png'
-// import travelData from '../../travelData';
+import Card from './Card';
+import { UserContext } from '../../App';
 
 
 
 const SinglePlace = () => {
-    // const [travels, setTravels] = useState(travelData)
+    //** Data Come Form Context API */
+    const [travels, setTravels, loggedInUser, setLoggedInUser] = useContext(UserContext)
+
 
     return (
         <div className="travel-slide d-flex">
@@ -23,32 +22,18 @@ const SinglePlace = () => {
                 </div>
             </div>
 
-            <div className="travel-slider d-flex">
-                <Link to="/destination">
-                    <div className="place-box">
-                        <img src={CoxBazar} alt="" />
-                        <h5>Cox's bazar</h5>
-                    </div>
-                </Link>
-                <Link to="/destination">
-                    <div className="place-box">
-                        <img src={Sundarban} alt="" />
-                        <h5>Cox's bazar</h5>
-                    </div>
-                </Link>
-                <Link to="/destination">
-                    <div className="place-box">
-                        <img src={Sreemangal} alt="" />
-                        <h5>Cox's bazar</h5>
-                    </div>
-                </Link>
-                <Link to="/destination">
-                    <div className="place-box">
-                        <img src={Sajek} alt="" />
-                        <h5>Cox's bazar</h5>
-                    </div>
-                </Link>
+            <div className="col-md-7 extra-width">
+                <div className="travel-slider">
+
+                    {
+                        loggedInUser.map(card => <Link to={"/destination/" + card.key}> <div className="place-box">  <Card key={card.key} card={card}></Card> </div> </Link>)
+                    }
+
+
+
+                </div>
             </div>
+
 
 
         </div>

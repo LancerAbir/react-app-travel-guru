@@ -10,7 +10,6 @@ const LightHeader = () => {
 
     //** Data Come Form Context API */
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    console.log(loggedInUser);
 
     return (
         <header className="header">

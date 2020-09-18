@@ -84,8 +84,8 @@ button.section-btn:hover {
     font-family: 'Montserrat', sans-serif;
     line-height: 24px;
 }
-.travel-header p {
-    width: 435px;
+.travel-header {
+    max-width: 502px;
 }
 .travel-header h1 {
     font-size: 97px;
@@ -127,10 +127,22 @@ button.section-btn:hover {
     border-radius: 16px;
     opacity: .5;
 }
-.travel-slider {
-    overflow: hidden;
-    width: 802px;
+.travel-slider .place-box {
+    display: inline-block;
 }
+.travel-slide .extra-width {
+    width: 847px;
+    padding-right: 0px;
+}
+.travel-slider a {
+    display: inline-flex;
+}
+.travel-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+
 
 
 
@@ -201,7 +213,7 @@ button.section-btn:hover {
 /* Hotel Rooms */
 .hotel-header {
     border-top: 1px solid #D1D1D1;
-    margin-top: -38px;
+    margin-top: -12px;
     font-family: Montserrat;
     margin-bottom: 25px;
     padding-top: 30px;
@@ -218,7 +230,7 @@ button.section-btn:hover {
 .single-hotel img {
     max-width: 240px;
     max-height: 180px;
-    margin-right: 25px;
+    border-radius: 5px;
 }
 .single-hotel {
     margin-bottom: 50px;
@@ -232,9 +244,10 @@ button.section-btn:hover {
 }
 .hotel-details {
     color: #6A6A6A;
-    line-height: 22px;
     font-size: 16px;
     line-height: 1.6;
+    margin: 0px 26px;
+    display: block;
 }
 .review {
     width: 283px;

@@ -28,11 +28,11 @@ const App = ({ children }) => {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/destination" component={Destination} />
+            <Route exact path="/destination/:SingleDesKey" component={Destination} />
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/login" component={Login} />
-            <PrivateRoute path="/hotel">
+            <PrivateRoute path="/hotel/:HotelKey">
               <Hotel></Hotel>
             </PrivateRoute>
             <Route path="*" component={NotFound} />
