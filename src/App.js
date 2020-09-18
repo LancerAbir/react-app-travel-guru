@@ -9,17 +9,21 @@ import Login from './components/pages/Login';
 import Hotel from './components/pages/Hotel';
 import NotFound from './components/pages/NotFound';
 import PrivateRoute from './components/pages/PrivateRoute';
+import travelData from './travelData';
+
+
 
 //** Context API */
 export const UserContext = createContext()
 
 
-function App() {
-
+const App = ({ children }) => {
   const [loggedInUser, setLoggedInUser] = useState({})
+  const [travels, setTravels] = useState(travelData)
+
 
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser, travels, setTravels]}>
       <div className="App">
         <BrowserRouter>
           <Switch>

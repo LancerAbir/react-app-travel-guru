@@ -11,18 +11,17 @@ const DarkHeader = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
     return (
-        <header className="header">
+        <header className="dark-header">
             <div className="row">
                 <div className="col-md-12">
                     <div className="d-flex justify-content-between">
                         <div className="logo">
                             <Link to="/"> <img src={logo} alt="" /> </Link>
                         </div>
-                        <form action="">
+                        <form className="dark-input" action="">
                             <input type="text" placeholder="Search your Destination..." />
                         </form>
-                        <div className="nav">
-                            <p>Name iS: {loggedInUser.name} </p>
+                        <div className="dark-nav">
                             <ul>
                                 <li>
                                     <Link to="/">Home</Link>
@@ -30,7 +29,7 @@ const DarkHeader = () => {
                                     <Link to="/blog">Blog</Link>
                                     <Link to="/contact">Contact</Link>
                                     {
-                                        loggedInUser.name ? <h6 style={{ fontWeight: "700" }}>{loggedInUser.name}</h6> : <Link to="/login">
+                                        loggedInUser.email ? <h6 style={{ fontWeight: "700" }}>{loggedInUser.fastName}</h6> : <Link to="/login">
                                             <button className="section-btn">Login</button>
                                         </Link>
                                     }
