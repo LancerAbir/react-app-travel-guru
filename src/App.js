@@ -5,7 +5,7 @@ import Home from './components/pages/Home';
 import Destination from './components/pages/Destination';
 import Blog from './components/pages/Blog';
 import Contact from './components/pages/Contact';
-import Login from './components/pages/Login';
+import Login from './components/Auth/Login';
 import Hotel from './components/pages/Hotel';
 import NotFound from './components/pages/NotFound';
 import PrivateRoute from './components/pages/PrivateRoute';

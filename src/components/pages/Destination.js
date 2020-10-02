@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import DarkHeader from '../layout/Dark Header/DarkHeader';
 import ThemeDatePicker from '../layout/Date Picker/ThemeDatePicker';
-import Hotel from './Hotel';
 
 
 
@@ -14,7 +13,7 @@ const Destination = () => {
 
     //** Dynamic Key Single Place */
     const { SingleDesKey } = useParams()
-    const place = loggedInUser.find(sc => sc.key === SingleDesKey)
+    const place = loggedInUser.find(sinPl => sinPl.key === SingleDesKey)
     const { name, descriptionDes, key } = place
 
     return (

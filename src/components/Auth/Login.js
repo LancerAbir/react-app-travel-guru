@@ -9,6 +9,13 @@ import firebaseConfig from '../../firebase.config';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
 
+//** react notification */
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+import { facebookSignInHandler, googleSignINHandler } from './LoginManager';
+
 firebase.initializeApp(firebaseConfig);
 
 
@@ -39,7 +46,23 @@ const Login = () => {
 
 
     //** Facebook Sing In Handler */
-    const facebookSignInHandler = () => {
+    // const facebookSingIn = () => {
+    //     facebookSignInHandler()
+    //         .then(res => {
+    //             setUser(res, true)
+    //             setLoggedInUser(res, true)
+    //             history.replace(from)
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //             console.log(error.message)
+    //             setUser(error.message)
+    //         })
+    // }
+
+
+
+    const facebookSingIn = () => {
         const facebookProvider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(facebookProvider)
             .then(res => {
@@ -48,7 +71,7 @@ const Login = () => {
                 const signedInUserFb = {
                     isSignedIn: true,
                     fastName: displayName,
-                    email: email
+                    email: email,
                 }
                 setUser(signedInUserFb)
                 setLoggedInUser(signedInUserFb)
@@ -61,20 +84,13 @@ const Login = () => {
             })
     }
 
+
     //** Google SignIN Handler */
-    const googleSignINHandler = () => {
-        const googleProvider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(googleProvider)
+    const googleSignIn = () => {
+        googleSignINHandler()
             .then(res => {
-                const { displayName, photoURL, email } = res.user
-                const signedInUser = {
-                    isSignedIn: true,
-                    fastName: displayName,
-                    email: email,
-                    photo: photoURL
-                }
-                setUser(signedInUser)
-                setLoggedInUser(signedInUser)
+                setUser(res)
+                setLoggedInUser(res)
                 history.replace(from)
             })
             .catch(error => {
@@ -84,26 +100,51 @@ const Login = () => {
             });
     }
 
+    // const googleSignINHandler = () => {
+    //     const googleProvider = new firebase.auth.GoogleAuthProvider();
+    //     firebase.auth().signInWithPopup(googleProvider)
+    //         .then(res => {
+    //             const { displayName, photoURL, email } = res.user
+    //             const signedInUser = {
+    //                 isSignedIn: true,
+    //                 fastName: displayName,
+    //                 email: email,
+    //                 photo: photoURL
+    //             }
+    //             setUser(signedInUser)
+    //             setLoggedInUser(signedInUser)
+    //             history.replace(from)
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //             console.log(error.message);
+    //             setUser(error.message)
+    //         });
+    // }
+
+
+
+
     //** Google Sign Out Handler */
-    const googleSignOutHandler = () => {
-        firebase.auth().signOut()
-            .then(res => {
-                const signedOutUser = {
-                    isSignedIn: false,
-                    fastName: '',
-                    lastName: '',
-                    email: '',
-                    password: '',
-                    photo: ''
-                }
-                setUser(signedOutUser)
-                setLoggedInUser(signedOutUser)
-            })
-            .catch(error => {
-                console.log(error);
-                console.log(error.message);
-            });
-    }
+    // const signOutHandler = () => {
+    //     firebase.auth().signOut()
+    //         .then(res => {
+    //             const signedOutUser = {
+    //                 isSignedIn: false,
+    //                 fastName: '',
+    //                 lastName: '',
+    //                 email: '',
+    //                 password: '',
+    //                 photo: ''
+    //             }
+    //             setUser(signedOutUser)
+    //             setLoggedInUser(signedOutUser)
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //             console.log(error.message);
+    //         });
+    // }
 
 
 
@@ -189,22 +230,17 @@ const Login = () => {
     }
 
 
-
-
-    // {
-    //     user.successful ? <div className="alert alert-warning alert-dismissible fade show text-dark" role="alert">
-    //         <strong> Successful !</strong> User Successfully
-    //     <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-    //             <span aria-hidden="true">&times;</span>
-    //         </button>
-    //     </div> :
-    //         <div className="alert alert-warning alert-dismissible fade show" role="alert">
-    //             <strong>Error!</strong> {user.error}
-    //             <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-    //                 <span aria-hidden="true">&times;</span>
-    //             </button>
-    //         </div>
-    // }
+    //** React Notification */
+    const notify = () => toast(
+        <div className='pass-noti'>
+            <ul>
+                <li> Password Must be Used [8 caracteres ] </li>
+                <li> Must be Used key symbol [!@#$%^&*] </li>
+                <li> Use Capital Letter [A-Z] </li>
+                <li> Use Small Letter [a-z] </li>
+                <li> Use Number [1-9] </li>
+            </ul>
+        </div>);
 
 
 
@@ -224,9 +260,11 @@ const Login = () => {
                                     newUser ? <h4>Create an account</h4> : <h4>Login</h4>
                                 }
                                 {
-                                    user.successful ? <p style={{ color: 'green' }}>User Successfully {newUser ? 'Created' : 'Logged In'} </p> : <p style={{ color: 'red' }}> {user.error}</p>
+                                    user.successful ?
+                                        <p style={{ color: 'green' }}>User Successfully {newUser ? 'Created' : 'Logged In'} </p>
+                                        :
+                                        <p style={{ color: 'red' }}> {user.error}</p>
                                 }
-
 
                                 <form action="" onSubmit={registerSubmitHandler}>
                                     <div className="form-group">
@@ -244,8 +282,15 @@ const Login = () => {
                                             aria-describedby="emailHelp" placeholder="Username or Email" required />
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" name="password" onBlur={blurHandler} className="form-control" id="exampleInputPassword1"
-                                            placeholder="Password" required />
+                                        {
+                                            newUser ?
+                                                <input type="password" onClick={notify} name="password" onBlur={blurHandler} className="form-control" id="exampleInputPassword1"
+                                                    placeholder="Password" required />
+                                                :
+                                                <input type="password" name="password" onBlur={blurHandler} className="form-control" id="exampleInputPassword1"
+                                                    placeholder="Password" required />
+                                        }
+                                        <ToastContainer />
                                     </div>
 
                                     {
@@ -278,7 +323,7 @@ const Login = () => {
                                     <p className="auth-bottom text-center"> Don’t have an account?
                                     <span onClick={() => setNewUser(!newUser)} name="newUser">
                                             {
-                                                newUser ? 'login' : 'Create an account'
+                                                newUser ? ' login' : ' Create an account'
                                             }
                                         </span>
                                     </p>
@@ -290,7 +335,7 @@ const Login = () => {
                                     Or
                             </div>
 
-                                <button onClick={facebookSignInHandler} className="social-auth-btn">
+                                <button onClick={facebookSingIn} className="social-auth-btn">
                                     <img className="text-left" src={fbIcon} alt="" />
                                                 Continue with Facebook
                                 </button>
@@ -298,11 +343,11 @@ const Login = () => {
 
                                 {
                                     user.isSignedIn ?
-                                        <button onClick={googleSignOutHandler} className="social-auth-btn">
+                                        <button className="social-auth-btn">
                                             <img src={googleIcon} alt="" />
                                                     Sign Out with Facebook
                                     </button> :
-                                        <button onClick={googleSignINHandler} className="social-auth-btn">
+                                        <button onClick={googleSignIn} className="social-auth-btn">
                                             <img src={googleIcon} alt="" />
                                                 Continue with Facebook
                                     </button>

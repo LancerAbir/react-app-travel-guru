@@ -12,8 +12,8 @@ const Gmap = (props) => {
             <GoogleMapReact
                 bootstrapURLKeys={{ key: AppConfig.GOOGLE.GAPI_KEY }}
                 defaultCenter={{
-                    lat: 21.433920,
-                    lng: 91.987030
+                    lat: lat,
+                    lng: lng
                 }}
                 defaultZoom={13}
             >

@@ -70,6 +70,34 @@ button.section-btn:hover {
     background-color: #92720F;
     color: #fff;
 }
+h6.over-effect {
+    position: relative;
+    transition: .3s;
+}
+.user-info {
+    position: absolute;
+    right: 14px;
+    bottom: -169px;
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 9;
+    cursor: pointer;
+    transition: .3s;
+}
+.user-info p:hover {
+    color: #000;
+    font-weight: 700;
+}
+button.section-btn.logout {
+    background-color: #fd2424;
+}
+button.section-btn.logout:hover {
+    background-color: #6d1313;
+    color: #fff
+}
+
+
 
 
 
@@ -100,6 +128,10 @@ button.section-btn:hover {
     border-radius: 20px;
     transition: .3s;
     background: linear-gradient(0.12deg, #000000 0.1%, rgba(0, 0, 0, 0) 69.96%);
+    border: 4px solid transparent;
+    border-radius: 20px;
+    width: 270px;
+    height: 416px;
 }
 
 .place-box:hover {
@@ -131,8 +163,9 @@ button.section-btn:hover {
     display: inline-block;
 }
 .travel-slide .extra-width {
-    width: 847px;
+    width: 807px;
     padding-right: 0px;
+    margin-bottom: -11px;
 }
 .travel-slider a {
     display: inline-flex;
@@ -143,6 +176,32 @@ button.section-btn:hover {
 }
 
 
+
+
+/* Travel Carousel */
+.sc-jSFkmK.llldhF.rec.rec-carousel-wrapper button {
+    color: #000 !important;
+    background-color: #fff !important;
+    transition: .3s !important;
+}
+.sc-jSFkmK.llldhF.rec.rec-carousel-wrapper button:hover {
+    color: #000 !important;
+    background-color: #F9A51A !important;
+}
+.chowzb {
+    position: absolute !important;
+    bottom: -27px !important;
+    left: 112px !important;
+}
+.hCVuYx {
+    position: absolute !important;
+    bottom: -27px !important;
+    left: 50px !important;
+}
+.sc-iCoHVE.kRlYRh.rec.rec-pagination button {
+    visibility: hidden !important;
+    display: none !important;
+}
 
 
 
@@ -204,6 +263,15 @@ button.section-btn:hover {
 .react-date-picker__wrapper button:hover, .react-date-picker__wrapper button.react-date-picker__clear-button:hover {
     background: none;
 }
+/* Date Picker */
+.react-calendar__month-view__days {
+    background-color: #F9A51A;
+}
+.react-calendar__navigation button {
+    background: #fff;
+}
+
+
 
 
 
@@ -409,4 +477,9 @@ button.social-auth-btn {
 
 button.social-auth-btn:hover {
     background-color: #ddd;
+}
+/* Alert & Notification */
+.pass-noti ul li {
+    font-size: 13px;
+    color: #333;
 }

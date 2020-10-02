@@ -26,7 +26,6 @@ const Blog = () => {
                             </div>
                         </div>
                     </div>
-
                 </section>
             </div>
         </div>

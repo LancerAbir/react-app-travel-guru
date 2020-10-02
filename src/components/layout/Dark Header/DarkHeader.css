@@ -11,9 +11,6 @@ header.dark-header {
     top: 5px;
     margin: 11px 0;
 }
-form.dark-input input[type="text"] {
-    margin: 12px 0px;
-}
 .dark-nav {
     margin-top: 5px;
 }
@@ -42,10 +39,9 @@ button.section-btn:hover {
     background-color: #92720F;
     color: #fff;
 }
-
-.dark-input input[type="text"] {
+form.dark-input input[type="text"] {
+    margin: 12px 0px;
     border: 1px solid #fff;
-    padding: 10px 115px;
     border-radius: 5px;
     position: absolute;
     left: 198px;
@@ -53,7 +49,12 @@ button.section-btn:hover {
     background: rgba(255, 255, 255, 0.2);
     opacity: .5;
     font-family: 'Montserrat', sans-serif;
+    display: block;
+    width: 380px;
+    padding: 10px;
+    text-align: center;
 }
+
 
 header.dark-header input[type="text"] {
     visibility: visible;
@@ -69,4 +70,7 @@ header.dark-header input[type="text"] {
     color: #fff;
     transition: .3s;
     font-family: 'Montserrat', sans-serif;
+}
+.dark-nav h6 {
+    color: #fff;
 }
